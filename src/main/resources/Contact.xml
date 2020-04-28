@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.hiberelation.app.model.Contact">
+        <table name="contact" schema="app" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="address">
+                <column name="address" length="30"/>
+            </basic>
+            <basic name="phone">
+                <column name="phone" precision="10"/>
+            </basic>
+            <one-to-one name="peopleById" optional="true" target-entity="com.hiberelation.app.model.People">
+                <join-column name="id" referenced-column-name="id"/>
+            </one-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>
